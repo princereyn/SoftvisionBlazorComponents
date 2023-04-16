@@ -24,4 +24,11 @@ else
             }
         </tbody>
     </table>
+    if (Paging) {
+        <Pagination Page="@_gridInfo.Page"
+            PageSize="@_gridInfo.PageSize"
+            ItemCount="@Items.Count"
+            Callback="@((args) => OnPaginationChange(args.Page, args.PageSize))" />
+    }
+}
 }

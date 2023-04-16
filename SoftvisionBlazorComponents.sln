@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftvisionBlazorComponents.Server", "SoftvisionBlazorComponents\Server\SoftvisionBlazorComponents.Server.csproj", "{C8311EEA-D33B-49B4-BF49-98A1E16EF41C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoftvisionBlazorComponents.Server", "SoftvisionBlazorComponents\Server\SoftvisionBlazorComponents.Server.csproj", "{C8311EEA-D33B-49B4-BF49-98A1E16EF41C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftvisionBlazorComponents.Client", "SoftvisionBlazorComponents\Client\SoftvisionBlazorComponents.Client.csproj", "{80AC226C-DBD8-41BC-9B87-267F3E3DF5A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoftvisionBlazorComponents.Client", "SoftvisionBlazorComponents\Client\SoftvisionBlazorComponents.Client.csproj", "{80AC226C-DBD8-41BC-9B87-267F3E3DF5A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftvisionBlazorComponents.Shared", "SoftvisionBlazorComponents\Shared\SoftvisionBlazorComponents.Shared.csproj", "{DBABEEAD-4BC3-4377-A6CD-85AF043B354B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoftvisionBlazorComponents.Shared", "SoftvisionBlazorComponents\Shared\SoftvisionBlazorComponents.Shared.csproj", "{DBABEEAD-4BC3-4377-A6CD-85AF043B354B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

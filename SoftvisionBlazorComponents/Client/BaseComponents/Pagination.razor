@@ -1,0 +1,62 @@
+﻿@inject JSInteropHelper _jsHelper
+
+<nav aria-label="Page navigation in the grid">
+    <ul class="pagination pagination-sm">
+        <li @ref="_pageFirst" class="page-item">
+            <a class="page-link" href="#" aria-label="First" title="Go to the first page" @onclick="@(e => OnPageClick(e, 1))" @onclick:preventDefault>
+                <span aria-hidden="true"><i class="bi bi-skip-start-fill"></i></span>
+            </a>
+        </li>
+        <li @ref="_pagePrev" class="page-item">
+            <a class="page-link" href="#" aria-label="Previous" title="Go to the previous page" @onclick="@(e => OnPageClick(e, Page - 1))" @onclick:preventDefault>
+                <span aria-hidden="true"><i class="bi bi-caret-left-fill"></i></span>
+            </a>
+        </li>
+        <li class="page-item">
+            <div class="input-group input-group-sm">
+                <label class="col-form-label col-form-label-sm">Page</label>
+                <input @ref="_pageInput" type="text" class="form-control rounded" value="@Page" @onchange="@OnPageChange">
+                <label class="col-form-label col-form-label-sm">of @_pageCount</label>
+            </div>
+        </li>
+        <li @ref="_pageNext" class="page-item">
+            <a class="page-link" href="#" aria-label="Next" title="Go to the next page" @onclick="@(e => OnPageClick(e, Page + 1))" @onclick:preventDefault>
+                <span aria-hidden="true"><i class="bi bi-caret-right-fill"></i></span>
+            </a>
+        </li>
+        <li @ref="_pageLast" class="page-item">
+            <a class="page-link" href="#" aria-label="Last" title="Go to the last page" @onclick="@(e => OnPageClick(e, _pageCount))" @onclick:preventDefault>
+                <span aria-hidden="true"><i class="bi bi-skip-end-fill"></i></span>
+            </a>
+        </li>
+        <li class="page-item">
+            <div class="input-group input-group-sm">
+                <label class="col-form-label col-form-label-sm">Page size</label>
+                <input @ref="_pageSizeInput" type="text" class="form-control rounded-left" aria-label="Text input with dropdown button" value="@(PageSize == int.MaxValue ? "All" : PageSize)" @onchange="@OnPageSizeChange">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" />
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class=@(PageSize == 5 ? "dropdown-item active" : "dropdown-item") href="#" @onclick="@(e => OnPageSizeClick(e, 5))" @onclick:preventDefault>5</a>
+                        <a class=@(PageSize == 10 ? "dropdown-item active" : "dropdown-item") href="#" @onclick="@(e => OnPageSizeClick(e, 10))" @onclick:preventDefault>10</a>
+                        <a class=@(PageSize == 20 ? "dropdown-item active" : "dropdown-item") href="#" @onclick="@(e => OnPageSizeClick(e, 20))" @onclick:preventDefault>20</a>
+                        <a class=@(PageSize == 50 ? "dropdown-item active" : "dropdown-item") href="#" @onclick="@(e => OnPageSizeClick(e, 50))" @onclick:preventDefault>50</a>
+                        <div role="separator" class="dropdown-divider"></div>
+                        <a class=@(PageSize == int.MaxValue ? "dropdown-item active" : "dropdown-item") href="#" @onclick="@(e => OnPageSizeClick(e, int.MaxValue))" @onclick:preventDefault>All</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        @{
+            var startItem = (Page - 1) * PageSize + 1;
+            var endItem = Math.Min(startItem + PageSize - 1, ItemCount);
+        }
+        <li class="page-item ml-auto">
+            <label class="col-form-label col-form-label-sm">@startItem - @endItem of @ItemCount items</label>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Refresh" title="Refresh the page" @onclick="OnRefresh" @onclick:preventDefault>
+                <span aria-hidden="true"><i class="bi bi-arrow-clockwise"></i></span>
+            </a>
+        </li>
+    </ul>
+</nav>

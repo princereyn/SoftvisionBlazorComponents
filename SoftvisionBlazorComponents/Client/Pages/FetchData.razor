@@ -14,7 +14,9 @@
 }
 else
 {
-    <Grid Items=forecasts TItem=WeatherForecast>
+    <Grid Items=forecasts TItem=WeatherForecast
+      Paging="true"
+      PageSize="2">
         <Columns>
             <Column Name="Date" Label="Date"></Column>
             <Column Name="TemperatureC" Label="Temp. (C)"></Column>

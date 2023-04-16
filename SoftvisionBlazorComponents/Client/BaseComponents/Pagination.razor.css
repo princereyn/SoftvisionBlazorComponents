@@ -1,0 +1,24 @@
+﻿label.col-form-label {
+    margin-left: .625rem;
+    margin-right: .625rem;
+}
+
+div.input-group > input.form-control {
+    width: 3.0rem;
+}
+
+li.page-item > a.page-link {
+    margin-left: .0625rem;
+    margin-right: .0625rem;
+    border-radius: 50% !important;
+}
+
+a.dropdown-item {
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+}
+
+div.dropdown-menu {
+    min-width: 4.625rem;
+}
