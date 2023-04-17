@@ -1,13 +1,14 @@
 ﻿using Microsoft.AspNetCore.Components;
+using SoftvisionBlazorComponents.Shared;
 
 namespace SoftvisionBlazorComponents.Client.BaseComponents
 {
     public partial class Grid<TItem> : ComponentBase
     {
-        private GridInfo _gridInfo = new GridInfo();
+        private DataSourceParameter _gridInfo = new DataSourceParameter();
 
         [Parameter]
-        public IList<TItem> Items { get; set; }
+        public DataSourceResult<TItem> DataSource { get; set; }
 
         [Parameter]
         public RenderFragment<TItem> Columns { get; set; }
@@ -18,7 +19,10 @@ namespace SoftvisionBlazorComponents.Client.BaseComponents
         [Parameter]
         public string PageSize { get; set; } = "10";
 
-        protected override void OnInitialized()
+        [Parameter]
+        public EventCallback<DataSourceParameter> Callback { get; set; }
+
+        protected override async Task OnInitializedAsync()
         {
             _gridInfo.Page = 1;
             if (PageSize.Equals("All", StringComparison.OrdinalIgnoreCase))
@@ -27,20 +31,15 @@ namespace SoftvisionBlazorComponents.Client.BaseComponents
                 _gridInfo.PageSize = pageSize;
             else
                 throw new ArgumentException("Invalid page size!");
+
+            await Callback.InvokeAsync(_gridInfo);
         }
 
-        private void OnPaginationChange(int page, int pageSize)
+        private async Task OnPaginationChange(int page, int pageSize)
         {
             _gridInfo.Page = page;
             _gridInfo.PageSize = pageSize;
-            // Load data for the new page that becomes the current page
+            await Callback.InvokeAsync(_gridInfo);
         }
-    }
-
-    public class GridInfo
-    {
-        public int Page { get; set; }
-
-        public int PageSize { get; set; }
     }
 }

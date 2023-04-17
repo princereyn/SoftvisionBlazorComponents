@@ -1,7 +1,7 @@
 ﻿@attribute [CascadingTypeParameter(nameof(TItem))]
 @typeparam TItem
 
-@if (Items == null)
+@if (DataSource == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -14,7 +14,7 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Items)
+            @foreach (var item in DataSource.Items)
             {
                 <CascadingValue Value="item">
                     <tr>
@@ -27,8 +27,7 @@ else
     if (Paging) {
         <Pagination Page="@_gridInfo.Page"
             PageSize="@_gridInfo.PageSize"
-            ItemCount="@Items.Count"
+            ItemCount="@DataSource.Count"
             Callback="@((args) => OnPaginationChange(args.Page, args.PageSize))" />
     }
-}
 }

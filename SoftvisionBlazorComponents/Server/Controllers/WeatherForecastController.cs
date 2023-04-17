@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using SoftvisionBlazorComponents.Shared;
 
@@ -20,15 +21,42 @@ namespace SoftvisionBlazorComponents.Server.Controllers
 		}
 
 		[HttpGet]
-		public IEnumerable<WeatherForecast> Get()
+		public DataSourceResult<WeatherForecast> Get()
 		{
-			return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+			var query = Enumerable.Range(1, 20).Select(index => new WeatherForecast
 			{
 				Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
 				TemperatureC = Random.Shared.Next(-20, 55),
 				Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-			})
-			.ToArray();
+			});
+
+			return new DataSourceResult<WeatherForecast>
+			{
+				Count = query.Count(),
+				Items = query.ToArray()
+			};
 		}
-	}
+
+        [HttpPost]
+        public DataSourceResult<WeatherForecast> Read(DataSourceParameter parameter)
+        {
+            var query = Enumerable.Range(1, 20).Select(index => new WeatherForecast
+            {
+                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+            });
+
+            var count = query.Count();
+            query = query
+                .Skip((parameter.Page - 1) * parameter.PageSize)
+                .Take(parameter.PageSize);
+
+            return new DataSourceResult<WeatherForecast>
+            {
+                Count = count,
+                Items = query.ToArray()
+            };
+        }
+    }
 }

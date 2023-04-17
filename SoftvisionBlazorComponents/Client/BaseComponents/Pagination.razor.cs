@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using SoftvisionBlazorComponents.Shared;
 
 namespace SoftvisionBlazorComponents.Client.BaseComponents
 {
@@ -23,7 +24,7 @@ namespace SoftvisionBlazorComponents.Client.BaseComponents
         public int ItemCount { get; set; }
 
         [Parameter]
-        public EventCallback<GridInfo> Callback { get; set; }
+        public EventCallback<DataSourceParameter> Callback { get; set; }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
@@ -41,7 +42,7 @@ namespace SoftvisionBlazorComponents.Client.BaseComponents
                 page > 0 && page <= _pageCount)
             {
                 Page = page;
-                await Callback.InvokeAsync(new GridInfo { Page = Page, PageSize = PageSize });
+                await Callback.InvokeAsync(new DataSourceParameter { Page = Page, PageSize = PageSize });
             }
             else
             {
@@ -67,7 +68,7 @@ namespace SoftvisionBlazorComponents.Client.BaseComponents
             if (isValid)
             {
                 Page = 1;
-                await Callback.InvokeAsync(new GridInfo { Page = Page, PageSize = PageSize });
+                await Callback.InvokeAsync(new DataSourceParameter { Page = Page, PageSize = PageSize });
             }
         }
 
@@ -77,7 +78,7 @@ namespace SoftvisionBlazorComponents.Client.BaseComponents
                 page != Page)
             {
                 Page = page;
-                await Callback.InvokeAsync(new GridInfo { Page = Page, PageSize = PageSize });
+                await Callback.InvokeAsync(new DataSourceParameter { Page = Page, PageSize = PageSize });
             }
         }
 
@@ -87,13 +88,13 @@ namespace SoftvisionBlazorComponents.Client.BaseComponents
             {
                 Page = 1;
                 PageSize = pageSize;
-                await Callback.InvokeAsync(new GridInfo { Page = Page, PageSize = PageSize });
+                await Callback.InvokeAsync(new DataSourceParameter { Page = Page, PageSize = PageSize });
             }
         }
 
         private async void OnRefresh()
         {
-            await Callback.InvokeAsync(new GridInfo { Page = Page, PageSize = PageSize });
+            await Callback.InvokeAsync(new DataSourceParameter { Page = Page, PageSize = PageSize });
         }
 
         private async Task EnableOrDisableNavigationButtons()
