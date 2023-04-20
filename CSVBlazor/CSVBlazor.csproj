@@ -4,7 +4,30 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Authors>Reynner Adonay</Authors>
+    <Version>1.0.0</Version>
+    <Title>CSVBlazor</Title>
+    <Company>$(Authors)</Company>
+    <Description>Reusable components for Blazor.</Description>
+    <Copyright>(c) Reynner Adonay</Copyright>
+    <PackageProjectUrl>https://github.com/princereyn/SoftvisionBlazorComponents</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/princereyn/SoftvisionBlazorComponents</RepositoryUrl>
+    <PackageTags>Blazor; Blazor Grid; Blazor Components; Blazor Reusable Components</PackageTags>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 
   <ItemGroup>
