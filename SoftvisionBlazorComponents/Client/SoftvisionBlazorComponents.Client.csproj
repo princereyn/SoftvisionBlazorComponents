@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\CSVBlazor\CSVBlazor.csproj" />
     <ProjectReference Include="..\Shared\SoftvisionBlazorComponents.Shared.csproj" />
   </ItemGroup>
 

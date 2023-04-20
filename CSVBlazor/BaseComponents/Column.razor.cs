@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace SoftvisionBlazorComponents.Client.BaseComponents
+namespace CSVBlazor.BaseComponents
 {
     public partial class Column<TItem> : ComponentBase
     {

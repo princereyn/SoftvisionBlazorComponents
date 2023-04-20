@@ -1,8 +1,8 @@
+using CSVBlazor.BaseComponents;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.JSInterop;
 using SoftvisionBlazorComponents.Client;
-using SoftvisionBlazorComponents.Client.BaseComponents;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");

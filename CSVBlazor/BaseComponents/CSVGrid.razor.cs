@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Components;
-using SoftvisionBlazorComponents.Shared;
+﻿using CSVBlazor.Data;
+using Microsoft.AspNetCore.Components;
 
-namespace SoftvisionBlazorComponents.Client.BaseComponents
+namespace CSVBlazor.BaseComponents
 {
-    public partial class Grid<TItem> : ComponentBase
+    public partial class CSVGrid<TItem> : ComponentBase
     {
         private DataSourceParameter _gridInfo = new DataSourceParameter();
 

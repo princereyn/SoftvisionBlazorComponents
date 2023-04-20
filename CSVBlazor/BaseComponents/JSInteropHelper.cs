@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
-namespace SoftvisionBlazorComponents.Client.BaseComponents
+namespace CSVBlazor.BaseComponents
 {
     public class JSInteropHelper : IAsyncDisposable
     {
@@ -10,7 +10,7 @@ namespace SoftvisionBlazorComponents.Client.BaseComponents
         public JSInteropHelper(IJSRuntime jsRuntime)
         {
             moduleTask = new(() => jsRuntime.InvokeAsync<IJSObjectReference>(
-               "import", "./jsInteropHelper.js").AsTask());
+               "import", "./_content/CSVBlazor/jsInteropHelper.js").AsTask());
         }
 
         public async ValueTask<string> Prompt(string message)

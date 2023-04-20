@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoftvisionBlazorComponents.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoftvisionBlazorComponents.Shared", "SoftvisionBlazorComponents\Shared\SoftvisionBlazorComponents.Shared.csproj", "{DBABEEAD-4BC3-4377-A6CD-85AF043B354B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSVBlazor", "CSVBlazor\CSVBlazor.csproj", "{D64C72BC-D56D-475E-B6E6-5162D3FCB63D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{DBABEEAD-4BC3-4377-A6CD-85AF043B354B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBABEEAD-4BC3-4377-A6CD-85AF043B354B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBABEEAD-4BC3-4377-A6CD-85AF043B354B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D64C72BC-D56D-475E-B6E6-5162D3FCB63D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D64C72BC-D56D-475E-B6E6-5162D3FCB63D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D64C72BC-D56D-475E-B6E6-5162D3FCB63D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D64C72BC-D56D-475E-B6E6-5162D3FCB63D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

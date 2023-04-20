@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using CSVBlazor.Data;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-using SoftvisionBlazorComponents.Shared;
 
-namespace SoftvisionBlazorComponents.Client.BaseComponents
+namespace CSVBlazor.BaseComponents
 {
     public partial class Pagination : ComponentBase
     {
